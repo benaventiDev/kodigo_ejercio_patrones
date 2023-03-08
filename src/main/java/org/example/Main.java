@@ -21,19 +21,25 @@ Z(A, C)
 
 * Juego implement Observable{
 ListOf<IObserever>
-cambiarPrecio()
-promocion(){
-    for(IObserver observer: observer){
-        observer.update()
-    }
-
+cambiarPrecio(){
+notifyObservers(String messages)
 }
+promocion(){
+
+notifyObservers(String messages)
+}
+notifyObservers(String messages){
+for(IObserver observer: observer){
+        observer.update(this, "promo x")
+    }
+   }
+
 
 }
 * Tienda {
 ListOf<Juego>
 }
-* Jugador implements IObserever{
+* Jugador implements IObserver{
     Name
     List<IObservable> games = ListOf(IObservable)
     addGame(observable IObservable){
